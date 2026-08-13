@@ -4,11 +4,11 @@
 
     <application
         android:allowBackup="false"
-        android:label="OpenAlex sample source"
+        android:label="Crossref sample source"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".OpenAlexSourceService"
+            android:name=".CrossrefSampleSourceService"
             android:exported="true"
             android:process=":source">
             <intent-filter>

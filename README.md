@@ -1,8 +1,9 @@
 # PaperReader source extension sample
 
-This repository is a minimal out-of-process PaperReader source extension. It
-queries the real [OpenAlex API](https://docs.openalex.org/) and returns bounded
-neutral paper records through the versioned PaperReader AIDL contract.
+This repository is a minimal out-of-process PaperReader source extension. It demonstrates an
+exact-DOI metadata engine using the real [Crossref REST API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/)
+and returns bounded neutral paper records through the versioned PaperReader AIDL contract. It is
+an educational template, not one of PaperReader's official provider packages.
 
 The extension runs in its own Android package and UID. It never receives
 PaperReader's database, private paths, credentials, or global tokens.
