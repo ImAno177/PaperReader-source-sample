@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 val paperReaderHostSigner = providers.gradleProperty("paperReaderHostSignerSha256")
@@ -12,7 +12,7 @@ require(paperReaderHostSigner.matches(Regex("[0-9a-fA-F]{64}")))
 
 android {
     namespace = "dev.paperreader.extensions.sample.source"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "dev.paperreader.extensions.sample.source"

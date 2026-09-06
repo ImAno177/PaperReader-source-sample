@@ -44,7 +44,7 @@ The host keeps ownership of persistence, trust decisions, and UI rendering.
 
 - A PaperReader checkout with the `:extension-api` module
 - JDK 17 or newer
-- Android SDK Platform 36
+- Android SDK Platform 37
 
 Place the PaperReader checkout in a directory named `PaperReader` under this repository, or set
 `PAPERREADER_SDK_PATH` to its absolute path. The default build uses that directory:
