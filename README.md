@@ -81,6 +81,8 @@ Request an exact DOI from the host and inspect the returned metadata and provide
 
 The service uses bounded requests and the neutral extension records. It does not become a PaperReader
 provider until the host trusts its package, version, API range, exported service, and certificate.
+The readable-document callback is implemented for API compatibility but returns `UNAVAILABLE`; this
+sample advertises metadata lookup only and does not download or render paper HTML.
 
 ## Security boundary
 

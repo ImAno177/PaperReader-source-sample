@@ -9,12 +9,14 @@ import android.os.IBinder
 import dev.paperreader.extensions.api.ExtensionFailure
 import dev.paperreader.extensions.api.ExtensionFailureCode
 import dev.paperreader.extensions.api.ExtensionPayloadValidator
+import dev.paperreader.extensions.api.IPaperReadableDocumentCallback
 import dev.paperreader.extensions.api.IPaperSourceCallback
 import dev.paperreader.extensions.api.IPaperSourceService
 import dev.paperreader.extensions.api.PaperExtensionContract
 import dev.paperreader.extensions.api.SourceCapability
 import dev.paperreader.extensions.api.SourceExtensionDescriptor
 import dev.paperreader.extensions.api.SourceGetPaperRequest
+import dev.paperreader.extensions.api.SourceGetReadableDocumentRequest
 import dev.paperreader.extensions.api.SourceIdentifierType
 import dev.paperreader.extensions.api.SourcePaperRecord
 import dev.paperreader.extensions.api.SourcePaperResponse
@@ -64,6 +66,20 @@ class CrossrefSampleSourceService : Service() {
                 val record = normalizeDoi(request.providerRecordId)?.let { fetchRecord(request.requestId, it) }
                 SourcePaperResponse(request.requestId, record).toBundle()
             }
+        }
+
+        override fun getReadableDocument(requestBundle: Bundle, callback: IPaperReadableDocumentCallback) {
+            requirePaperReaderCaller()
+            val requestId = runCatching {
+                SourceGetReadableDocumentRequest.fromBundle(requestBundle).requestId
+            }.getOrDefault("invalid-request")
+            callback.onFailure(
+                ExtensionFailure(
+                    requestId,
+                    ExtensionFailureCode.UNAVAILABLE,
+                    "Crossref sample does not provide readable documents",
+                ).toBundle(),
+            )
         }
 
         override fun cancel(requestId: String) {
