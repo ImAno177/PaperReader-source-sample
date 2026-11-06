@@ -16,7 +16,7 @@
             </intent-filter>
             <meta-data
                 android:name="dev.paperreader.extensions.API_VERSION"
-                android:value="1" />
+                android:value="2" />
             <meta-data
                 android:name="dev.paperreader.extensions.KIND"
                 android:value="source" />
