@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           repository: ImAno177/PaperReader
+          ref: f5ab91e089798c0c81b1c53a6e1579d45008241f
           path: PaperReader
 
       - name: Set up JDK 21
@@ -29,10 +30,10 @@ jobs:
           java-version: "21"
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699
+        uses: android-actions/setup-android@035682743ab223ec9c6169af09811dff8247e520
 
       - name: Install Android SDK
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+        run: sdkmanager "platforms;android-37.0" "build-tools;36.1.0"
 
       - name: Build sample APK
-        run: ./gradlew :app:lintDebug :app:assembleDebug
+        run: ./gradlew :app:testDebugUnitTest :app:lintDebug :app:assembleDebug --console=plain

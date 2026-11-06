@@ -40,5 +40,5 @@ kotlin {
 }
 
 dependencies {
-    implementation("dev.paperreader:extension-api:0.1.0")
+    implementation("dev.paperreader:extension-api:0.2.0")
 }
