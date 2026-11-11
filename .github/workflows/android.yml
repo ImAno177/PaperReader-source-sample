@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           repository: ImAno177/PaperReader
-          ref: f5ab91e089798c0c81b1c53a6e1579d45008241f
+          ref: c7354c5ae1b9944651eec1a159117a0ee83573d8
           path: PaperReader
 
       - name: Set up JDK 21
